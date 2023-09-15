@@ -1,0 +1,18 @@
+`npm init -y`: 
+    - tạo một tệp `package.json` và ghi thông cho cho dự án 
+
+`alter user 'root'@'localhost' identified with 
+mysql_native_password by '';`
+    - Chỉ định rằng bạn đang thay đổi cách xác định người dùng 'root'@'localhost'. 
+    - 'mysql_native_password' là một giao thức xác thực chuẩn trong MySQL
+
+`cookie-parser`
+    - Gói này cho phép bạn dễ dàng đọc và ghi các thông tin trong cookies của trình duyệt
+
+`cors`
+    - Xử lý chính sách Same-Origin và cho phép tài nguyên trong một trang web (hoặc máy chủ) được truy cập từ các nguồn (origin) khác nhau.
+
+`SET SQL_SAFE_UPDATES = 0;`
+    - Tắt tính năng an toàn
+`SET SQL_SAFE_UPDATES = 1;`
+    - Bật tính năng an toàn
