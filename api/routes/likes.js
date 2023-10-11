@@ -1,8 +1,11 @@
 import express from "express";
+import { getLikes, addLike, deleteLike } from "../controllers/like.js";
 
-const roter = express.Router()
+const router = express.Router()
 
-roter.get("")
+router.get("/", getLikes)
+router.post("/", addLike)
+router.delete("/", deleteLike)
 
-export default roter;
 
+export default router

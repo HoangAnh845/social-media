@@ -28,7 +28,7 @@ const Post = ({ post }) => {
 
   const queryClient = useQueryClient();
 
-  const mutation = useMutation(
+  const mutation = useMutation(    
     (liked) => {
       if (liked) return makeRequest.delete("/likes?postId=" + post.id);
       return makeRequest.post("/likes", { postId: post.id });
@@ -71,19 +71,19 @@ const Post = ({ post }) => {
                 to={`/profile/${post.userId}`}
                 style={{ textDecoration: "none", color: "inherit" }}
               >
-                <span className="name">{post.name}</span>
+                <span className="name">{post.username}</span>
               </Link>
-              <span className="date">{moment(post.createdAt).fromNow()}</span>
+              <span className="date">{moment(post.created_at).fromNow()}</span>
             </div>
           </div>
           <MoreHorizIcon onClick={() => setMenuOpen(!menuOpen)} />
-          {menuOpen && post.userId === currentUser.id && (
+          {menuOpen && post.user_Id === currentUser.id && (
             <button onClick={handleDelete}>delete</button>
           )}
         </div>
         <div className="content">
-          <p>{post.desc}</p>
-          <img src={"/upload/" + post.img} alt="" />
+          <p>{post.content}</p>
+          <img src={post.image_url} alt="" style={{width:"50%"}} />
         </div>
         <div className="info">
           <div className="item">

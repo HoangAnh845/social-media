@@ -5,14 +5,11 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 const Update = ({ setOpenUpdate, user }) => {
-  const [cover, setCover] = useState(null);
-  const [profile, setProfile] = useState(null);
+  const [avater, setAvater] = useState(null);
   const [texts, setTexts] = useState({
     email: user.email,
-    password: user.password,
-    name: user.name,
-    city: user.city,
-    website: user.website,
+    password: user.passwrod,
+    name: user.fullname,
   });
 
   const upload = async (file) => {
@@ -48,32 +45,27 @@ const Update = ({ setOpenUpdate, user }) => {
   const handleClick = async (e) => {
     e.preventDefault();
 
-    //TODO: find a better way to get image URL
+    let avaterUrl;
+    avaterUrl = avater ? await upload(avater) : user.avaterPic;
 
-    let coverUrl;
-    let profileUrl;
-    coverUrl = cover ? await upload(cover) : user.coverPic;
-    profileUrl = profile ? await upload(profile) : user.profilePic;
-
-    mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
+    mutation.mutate({ ...texts, avater: avaterUrl });
     setOpenUpdate(false);
-    setCover(null);
-    setProfile(null);
+    setAvater(null);
   };
   return (
     <div className="update">
       <div className="wrapper">
-        <h1>Update Your Profile</h1>
+        <h1>Update Your avater</h1>
         <form>
           <div className="files">
-            <label htmlFor="cover">
-              <span>Cover Picture</span>
+            <label htmlFor="avater">
+              <span>avater Picture</span>
               <div className="imgContainer">
                 <img
                   src={
-                    cover
-                      ? URL.createObjectURL(cover)
-                      : "/upload/" + user.coverPic
+                    avater
+                      ? URL.createObjectURL(avater)
+                      : user.avater
                   }
                   alt=""
                 />
@@ -82,29 +74,9 @@ const Update = ({ setOpenUpdate, user }) => {
             </label>
             <input
               type="file"
-              id="cover"
+              id="avater"
               style={{ display: "none" }}
-              onChange={(e) => setCover(e.target.files[0])}
-            />
-            <label htmlFor="profile">
-              <span>Profile Picture</span>
-              <div className="imgContainer">
-                <img
-                  src={
-                    profile
-                      ? URL.createObjectURL(profile)
-                      : "/upload/" + user.profilePic
-                  }
-                  alt=""
-                />
-                <CloudUploadIcon className="icon" />
-              </div>
-            </label>
-            <input
-              type="file"
-              id="profile"
-              style={{ display: "none" }}
-              onChange={(e) => setProfile(e.target.files[0])}
+              onChange={(e) => setAvater(e.target.files[0])}
             />
           </div>
           <label>Email</label>
@@ -126,20 +98,6 @@ const Update = ({ setOpenUpdate, user }) => {
             type="text"
             value={texts.name}
             name="name"
-            onChange={handleChange}
-          />
-          <label>Country / City</label>
-          <input
-            type="text"
-            name="city"
-            value={texts.city}
-            onChange={handleChange}
-          />
-          <label>Website</label>
-          <input
-            type="text"
-            name="website"
-            value={texts.website}
             onChange={handleChange}
           />
           <button onClick={handleClick}>Update</button>

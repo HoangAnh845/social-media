@@ -64,40 +64,42 @@ const Profile = () => {
       ) : (
         <>
           <div className="images">
-            <img src={"/upload/"+data.coverPic} alt="" className="cover" />
-            <img src={"/upload/"+data.profilePic} alt="" className="profilePic" />
+            <img
+              src={
+                "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.566xw:1.00xh;0.184xw,0&resize=980:*"
+              }
+              alt=""
+              className="cover"
+            />
+            <img src={data.avater} alt="" className="profilePic" />
           </div>
           <div className="profileContainer">
             <div className="uInfo">
-              <div className="left">
-                <a href="http://facebook.com">
-                  <FacebookTwoToneIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <InstagramIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <TwitterIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <LinkedInIcon fontSize="large" />
-                </a>
-                <a href="http://facebook.com">
-                  <PinterestIcon fontSize="large" />
-                </a>
+              <span style={{fontSize:"30px"}}>{data.fullname}</span>
+              <div style={{ margin: "18px 0px" }}>
+                <div className="left">
+                  <a href="http://facebook.com">
+                    <FacebookTwoToneIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <InstagramIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <TwitterIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <LinkedInIcon fontSize="large" />
+                  </a>
+                  <a href="http://facebook.com">
+                    <PinterestIcon fontSize="large" />
+                  </a>
+                </div>
+                {/* <div className="right">
+                  <EmailOutlinedIcon />
+                  <MoreVertIcon />
+                </div> */}
               </div>
               <div className="center">
-                <span>{data.name}</span>
-                <div className="info">
-                  <div className="item">
-                    <PlaceIcon />
-                    <span>{data.city}</span>
-                  </div>
-                  <div className="item">
-                    <LanguageIcon />
-                    <span>{data.website}</span>
-                  </div>
-                </div>
                 {rIsLoading ? (
                   "loading"
                 ) : userId === currentUser.id ? (
@@ -109,10 +111,6 @@ const Profile = () => {
                       : "Follow"}
                   </button>
                 )}
-              </div>
-              <div className="right">
-                <EmailOutlinedIcon />
-                <MoreVertIcon />
               </div>
             </div>
             <Posts userId={userId} />

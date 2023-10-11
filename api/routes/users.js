@@ -1,9 +1,10 @@
 import express from "express";
-import { getUser } from "../controllers/user.js";
+import { getUser , updateUser} from "../controllers/user.js";
 
-const roter = express.Router()
+const router = express.Router()
 
-roter.get("/find/:userId",getUser)
+router.get("/find/:userId", getUser)
+router.put("/", updateUser)
 
-export default roter;
 
+export default router

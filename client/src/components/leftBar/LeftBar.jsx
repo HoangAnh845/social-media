@@ -24,8 +24,10 @@ const LeftBar = () => {
       <div className="container">
         <div className="menu">
           <div className="user">
-            <img src={currentUser.avater} alt="" />
-            <span>{currentUser.username || "NUll"}</span>
+            <Link className="item" to={`/profile/${currentUser.id}`}>
+              <img src={currentUser.avater} alt="" />
+              <span>{currentUser.username || "NUll"}</span>
+            </Link>
           </div>
           <Link className="item" to={"/friends"}>
             <img src={Friends} alt="" />
