@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "sonorous-crane-399802",
+  "private_key_id": "82c0f8c43e90a2018e46284e8429ca2b4a251471",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQClBNNpZcKYBDAp\nsA7X3R299wSjTrAD7KkAOzEf5vvv6O4wvdKEcnwJI4TGMuuXxliwmdb1z1Pf8lQz\nppT7Kmf1ijnBu8CPsmRvzYdeMkKBQbT3NzY1KiR76Lz1YDNFrymVHfiatdGvQW90\n8WF1sBEXsO+KXW930eFOoYS+NLBQ4ibytOU0RFluZaK8hKlPWgKKRyJUyI1eAubR\nOtCbF25XDllJ8V6LaFrcZ/n4MvbO3je+y6eH5bYgpN1b3rQ/AcIP9zDLLW7265uy\n2N6s+SuoG/gktspfM5uPPvOzxnuRKPxACDwXVUDTghN9r5ojihPSwamws+4yKIlC\nvvbdZGojAgMBAAECggEAA+D/qTATqWgby7cQOkG/07nNOZt9ZrI27ML3biULUgHb\nK3kizCs2wC4+DjyfLhOi/Q+4rlF/yrlTAl3NjbPa+roTjnq/1YDffINLxcqPpqMp\nQlBhbVF+xwza+DeZLO+nnhI0yEoy0hhLKugLnu0TEcf+cXWty5a64ZLJYIEzjcsh\nX44zFPzJy5ZkCYJJ9HAJt/KiXZTUv+TRM4FvZkaz96dlTkiotfyS8r9ff6kpFGnd\nARvd26O0pLnStNwwvV+QQbfm7PBSUISyWbqCfSD/ns7vUsOPPx4MLyk+UICHJY65\nSU0hqKnvwryh3wVvHaVQ/3NhCY3ZUkNEaKw8klRvKQKBgQDleyniMdeCsSinPklU\n1CMvmWFzSZvgrAs8m00JDLH3SUT9hcQL+pWIVacEHR9peLwnv/ooLAlua5HY0EJ5\nn41NZVZjvZd3sLg7u8otFee4V+eOosDSP5LYKGCXeXPX4c7UyuSNi5OAFZUzqKyJ\nPFYzZJ3Pd2KXvk8NQrm9xgUziwKBgQC4FqXo+KRhBX7aG4zDnjI6Y+sIVFgTW2Bs\n63UmE9Ja/kWAYQ5/Pm8gFDPVMiDOd3YpwgSacfOqGN7ufv9r97qlJOj7cZXB9QUd\nlrJC+XLfnI4gmtL8lLxh0dE8cloCefJmmguCYEjz5X5uDnWfzfRfQ55UNgNWRI6C\nPeXwysMWyQKBgQCJVK+4AgPq3oJps8jGzz1PWwcKq15xkgQXfQkZBVPrnRmAbvDo\nCko6kKemupb1058mWqkmKVRrlExv6BIgHu+9BYwxnGBs7IEUnklbueQ2WcTlg1jJ\neeozGdbUT4aYBzZz+gfU/VaELGZhx+uZJVag4vHeGqASF33PfcMSYtLyCQKBgFFH\nbqmWXr2Xt5KFZ3lXd8XgJ/3df6XMSp7Mt0TAq7gRXI56S/RSlK4NPXV8VI/Unw+A\n4pduiK8pnAShfhUlo/sWeOfMFts0W7Xcu4hmqxmf/gDXWyC6axKlmUSfGK7POP+k\nNEC0UoGdal0ddUHBpYwKRvXXg1Gro2BOBCB05f5BAoGBANeabO903UZtIuVqNar+\nRu/PZXHcsCdeJvtxkw37FDW5E/T6imRJXAFnnaQqVod8Q//RH36/Qtpbm16khl5z\nCP0Ff4pxE1ESKA7V565hOFE9H6KwiL90r69b5mSmpabwb14nAq3g7gIXjNi3B0iM\n8/rVNqJ51QGewmVDMlmzsRYd\n-----END PRIVATE KEY-----\n",
+  "client_email": "storageupload@sonorous-crane-399802.iam.gserviceaccount.com",
+  "client_id": "117446575494753600382",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/storageupload%40sonorous-crane-399802.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

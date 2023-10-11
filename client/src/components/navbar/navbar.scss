@@ -36,6 +36,7 @@
         input {
           border: none;
           width: 500px;
+          outline: none;
           background-color: transparent;
           color: themed("textColor");
 
@@ -54,6 +55,10 @@
       display: flex;
       align-items: center;
       gap: 20px;
+
+      svg{
+        cursor: pointer;
+      }
 
       @include mobile{
         display: none;

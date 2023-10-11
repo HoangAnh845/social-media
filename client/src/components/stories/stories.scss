@@ -1,10 +1,23 @@
 @import "../../style.scss";
 
+// Biến CSS
+$storyHeight: 300px;
+$storyGap: 10px;
+$storyBorderRadius: 10px;
+$storyButtonSize: 35px;
+$storyButtonBackground: #8080808c;
+
 .stories {
   display: flex;
-  gap: 10px;
-  height: 250px;
-  margin-bottom: 30px;
+  align-items: center;
+  gap: $storyGap;
+  height: $storyHeight;
+  margin-bottom: 25px;
+
+  @include tablet {
+    height: 150px;
+    gap: 20px;
+  }
 
   @include mobile {
     height: 50px;
@@ -12,16 +25,87 @@
     justify-content: space-between;
   }
 
-  @include tablet{
-    height: 150px;
-    gap: 20px;
-  }
-
   .story {
-    flex: 1;
-    border-radius: 10px;
+    width: 30%;
+    height: 100%;
+    border-radius: $storyBorderRadius;
     overflow: hidden;
     position: relative;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .imgAdd {
+      position: relative;
+      height: 80%;
+
+      div {
+        position: absolute;
+        top: 0;
+        background: #333;
+        height: 100%;
+        width: 100%;
+        opacity: 0.3;
+      }
+    }
+
+    .addStory {
+      position: relative;
+      height: 20%;
+      width: 100%;
+      background-color: #fff;
+      border-end-end-radius: $storyBorderRadius;
+      border-end-start-radius: $storyBorderRadius;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+      }
+
+      button {
+        position: absolute;
+        left: 39%;
+        top: -30%;
+        bottom: 0;
+        color: white;
+        background-color: #5271ff;
+        border: none;
+        border-radius: 50%;
+        width: $storyButtonSize;
+        height: $storyButtonSize;
+        cursor: pointer;
+        font-size: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        @include mobile {
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+        }
+      }
+    }
+
+    span {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      color: white;
+      font-weight: 500;
+
+      @include mobile {
+        display: none;
+      }
+    }
 
     @include mobile {
       flex: none;
@@ -29,46 +113,82 @@
       height: 50px;
       border-radius: 50%;
     }
+  }
 
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-    span {
-      position: absolute;
-      bottom: 10px;
-      left: 10px;
-      color: white;
-      font-weight: 500;
-      @include mobile {
-        display: none;
+  .slider {
+    display: flex;
+    height: inherit;
+    width: 80%;
+    height: 100%;
+    .category {
+      position: relative;
+      width: 35%;
+      margin-right: 10px;
+      color: #fff;
+      .category_image {
+        background-position: center;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+      }
+      .avater {
+        background-color: gray;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        top: 0%;
+        padding: 10px;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        img {
+          border-radius: 50%;
+          width: 25%;
+        }
+        div {
+          margin-left: 10px;
+        }
+      }
+      .text_image {
+        background-image: url("../../../public/story_banner.jpeg");
+      }
+      .text_content {
+        position: absolute;
+        top: 50%;
+        left: 20%;
       }
     }
 
-    button {
-      position: absolute;
-      bottom: 40px;
-      left: 10px;
-      color: white;
-      background-color: #5271ff;
-      border: none;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      cursor: pointer;
-      font-size: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .story_item {
+      width: 192px;
+      height: 100%;
+      margin-right: 11px;
+      border-radius: $storyBorderRadius;
+      overflow: hidden;
+      position: relative;
 
-      @include mobile {
-       left: 0;
-       right: 0;
-       top: 0;
-       bottom: 0;
-       margin: auto;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
     }
   }
+
+  .loading {
+    margin-left: 30px;
+  }
+
+  // .wCustom{
+  //   width: 100%;
+  //   .slick-list{
+  //     height: 100%;
+  //     .slick-slide{
+  //       width: 50%;
+  //       div{
+  //         height: 100%;
+  //       }
+  //     }
+  //   }
+  // }
 }

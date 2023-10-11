@@ -19,8 +19,25 @@
 
         .left {
           display: flex;
+          flex-wrap: wrap;
           align-items: center;
           flex: 3;
+          width: 100%;
+          
+          .lefTop{
+            display: flex;
+            align-items: center;
+            margin-left: 15px;
+            img{
+              margin-right: 10px;
+            }
+            // select{
+            //   border-radius:5px;
+            // }
+          }
+          div {
+            width: 100%;
+          }
           img {
             width: 40px;
             height: 40px;

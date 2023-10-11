@@ -9,10 +9,10 @@
     overflow: scroll;
     background-color: themed("bgSoft");
 
-    @include mobile{
+    @include mobile {
       display: none;
     }
-    @include tablet{
+    @include tablet {
       display: none;
     }
 
@@ -20,9 +20,9 @@
       display: none;
     }
 
-    .container {
-      padding: 20px;
+    padding-top: 18px;
 
+    .container {
       .item {
         -webkit-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
         -moz-box-shadow: 0px 0px 15px 1px rgba(0, 0, 0, 0.09);
@@ -30,18 +30,47 @@
         padding: 20px;
         margin-bottom: 20px;
         background-color: themed("bg");
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
 
-        span {
-          color: gray;
+        .title {
+          display: flex;
+          justify-content: space-between;
+          border-bottom: 1px solid #808080ad;
+          padding-bottom: 12px;
+          color: #121212de;
+          .tools {
+            color: #957f7fd6;
+            div:nth-child(1) {
+              margin-right: 6px;
+            }
+          }
+          span:nth-child(2) {
+            color: #5271ff;
+            cursor: pointer;
+          }
         }
 
+        .listUsers {
+          min-height: fit-content;
+          .loading,
+          .notFound {
+            margin: 0 auto;
+            padding-top: 20px;
+          }
+          .notFound {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #a7a2a2c1;
+          }
+        }
         .user {
           display: flex;
           align-items: center;
-          justify-content: space-between;
           margin: 20px 0px;
 
-          .userInfo {
+          .userImage {
             display: flex;
             align-items: center;
             gap: 20px;
@@ -53,17 +82,11 @@
               border-radius: 50%;
               object-fit: cover;
             }
+          }
 
-            .online {
-              width: 12px;
-              height: 12px;
-              border-radius: 50%;
-              background-color: limegreen;
-              position: absolute;
-              top: 0;
-              left: 30px;
-            }
-
+          .userInfo {
+            width: 100%;
+            padding-left: 20px;
             p {
               color: themed("textColorSoft");
             }
@@ -78,9 +101,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-top: 7px;
 
             button {
               border: none;
+              border-radius: 5px;
+              width: 50%;
               padding: 5px;
               color: white;
               cursor: pointer;
@@ -90,9 +116,19 @@
               }
 
               &:last-child {
-                background-color: #f0544f;
+                background-color: #696969;
               }
             }
+          }
+
+          .online {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: limegreen;
+            position: absolute;
+            top: 30px;
+            left: 30px;
           }
         }
       }

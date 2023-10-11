@@ -6,6 +6,8 @@ import {
   Outlet,
   Navigate,
 } from "react-router-dom";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import Navbar from "./components/navbar/Navbar";
 import LeftBar from "./components/leftBar/LeftBar";
 import RightBar from "./components/rightBar/RightBar";
@@ -16,15 +18,15 @@ import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/authContext";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import Friends from "./pages/friends/Friends";
 
 function App() {
   const { currentUser } = useContext(AuthContext);
-
   const { darkMode } = useContext(DarkModeContext);
-
   const queryClient = new QueryClient();
+  // const { pathname } = window.location;
 
-  const Layout = () => {
+  const Layout = ({ is }) => {
     return (
       <QueryClientProvider client={queryClient}>
         <div className={`theme-${darkMode ? "dark" : "light"}`}>
@@ -34,7 +36,7 @@ function App() {
             <div style={{ flex: 6 }}>
               <Outlet />
             </div>
-            <RightBar />
+            {is === 'trueRight' ? <RightBar /> : ""}
           </div>
         </div>
       </QueryClientProvider>
@@ -54,7 +56,7 @@ function App() {
       path: "/",
       element: (
         <ProtectedRoute>
-          <Layout />
+          <Layout is={"trueRight"} />
         </ProtectedRoute>
       ),
       children: [
@@ -69,13 +71,27 @@ function App() {
       ],
     },
     {
+      path: "/",
+      element: (
+        <ProtectedRoute>
+          <Layout is={"falseRight"} />
+        </ProtectedRoute>
+      ),
+      children: [
+        {
+          path: "/friends",
+          element: <Friends />,
+        },
+      ],
+    },
+    {
       path: "/login",
       element: <Login />,
     },
     {
       path: "/register",
       element: <Register />,
-    },
+    }
   ]);
 
   return (

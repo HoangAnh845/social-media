@@ -3,7 +3,6 @@ import db from "../connect.js"
 import bcrypt from "bcryptjs"
 
 export const register = (req, res) => {
-    console.log("LOG_____",req.body)
     const qCheck = "SELECT * FROM users WHERE username=?";
 
     // if the user exists
@@ -17,16 +16,20 @@ export const register = (req, res) => {
     const salt = bcrypt.genSaltSync(10);
     const hashedPassword = bcrypt.hashSync(req.body.password, salt);
 
-    const qInsert = "INSERT INTO users (`username`,`email`,`password`,`name`) VALUE (?)";
+    const qInsert = "INSERT INTO users (`fullname`,`username`,`email`,`password`,`birthday`,`gender`) VALUE (?)";
 
     const values = [
+        req.body.fullname,
         req.body.username,
         req.body.email,
         hashedPassword,
-        req.body.name
+        req.body.birthday,
+        req.body.gender
     ];
 
-    db.query(qInsert, [values], (err, data) => {
+    db.query(qInsert, [values], (err, data) => {        
+        console.log('--- err ---', err);
+        
         if (err) return res.status(500).json(err);
         return res.status(200).json("User has been created.");
     })
@@ -36,9 +39,9 @@ export const register = (req, res) => {
 export const login = (req, res) => {
     const qFind = "SELECT * FROM users WHERE username=?";
 
-    db.query(qFind,[req.body.username],(err,data)=>{
-        if(err) return res.status(500).json(err)
-        if(data.length === 0) return res.status(400).json("User not found!");
+    db.query(qFind, [req.body.username], (err, data) => {
+        if (err) return res.status(500).json(err)
+        if (data.length === 0) return res.status(400).json("User not found!");
 
         // Encrypt password with user password
         const checkPasssword = bcrypt.compareSync(
@@ -46,13 +49,13 @@ export const login = (req, res) => {
             data[0].password
         );
 
-        if(!checkPasssword) return res.status(400).json("Wrong username or password!");
+        if (!checkPasssword) return res.status(400).json("Wrong username or password!");
 
         // Crete Token JWT
-        const token = jwt.sign({id:data[0].id},"secretkey");
+        const token = jwt.sign({ id: data[0].id }, "secretkey");
         // Delete password
-        const {password,...orther} = data[0];
-        res.cookie("accessToken", token,{
+        const { password, ...orther } = data[0];
+        res.cookie("accessToken", token, {
             httpOnly: true,
         }).status(200).json(orther);
 
@@ -62,7 +65,7 @@ export const login = (req, res) => {
 }
 
 export const logout = (req, res) => {
-    res.clearCookie("accessToken",{
+    res.clearCookie("accessToken", {
         secure: true,
         sameSite: "none"
     }).status(200).json("User has been logged out.")

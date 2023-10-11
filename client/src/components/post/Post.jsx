@@ -12,6 +12,7 @@ import { useQuery, useQueryClient, useMutation } from "@tanstack/react-query";
 import { makeRequest } from "../../axios";
 import { useContext } from "react";
 import { AuthContext } from "../../context/authContext";
+// import CheckImageValidity from "../CheckImageValidity";
 
 const Post = ({ post }) => {
   const [commentOpen, setCommentOpen] = useState(false);
@@ -52,7 +53,7 @@ const Post = ({ post }) => {
   );
 
   const handleLike = () => {
-    mutation.mutate(data.includes(currentUser.id));
+    mutation.mutate(data && data.includes(currentUser.id));
   };
 
   const handleDelete = () => {
@@ -64,7 +65,7 @@ const Post = ({ post }) => {
       <div className="container">
         <div className="user">
           <div className="userInfo">
-            <img src={"/upload/"+post.profilePic} alt="" />
+            <img src={post.avater} alt="" />
             <div className="details">
               <Link
                 to={`/profile/${post.userId}`}
@@ -88,7 +89,7 @@ const Post = ({ post }) => {
           <div className="item">
             {isLoading ? (
               "loading"
-            ) : data.includes(currentUser.id) ? (
+            ) : data && data.includes(currentUser.id) ? (
               <FavoriteOutlinedIcon
                 style={{ color: "red" }}
                 onClick={handleLike}

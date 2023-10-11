@@ -17,6 +17,12 @@ $themes: (
   ),
 );
 
+a{
+  text-decoration: none;
+  color: #333;
+}
+
+
 @mixin themify($themes) {
   @each $theme, $map in $themes {
     .theme-#{$theme} & {
@@ -47,6 +53,12 @@ $themes: (
 }
 @mixin tablet {
   @media (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1025px) {
     @content;
   }
 }
